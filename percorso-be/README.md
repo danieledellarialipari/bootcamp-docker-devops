@@ -28,3 +28,8 @@ curl http://localhost:3000/accounts
 Il `package.json` dichiara già `pg` e `ioredis`, che al Giorno 0 il codice non usa: servono dal Giorno 1, quando l'API si collega a Postgres e Redis. Sono già risolte nel `package-lock.json`, quindi `npm ci` installa sempre le stesse versioni, sul tuo PC come dentro un container.
 
 Non cancellare né rigenerare il `package-lock.json`: `npm ci` lavora solo se lockfile e `package.json` sono allineati, e da quell'allineamento dipende la riproducibilità di tutte le build del bootcamp.
+
+## Cache di BuildKit
+
+Tempo build pre: 2.1s
+Tempo build post: 0.7s

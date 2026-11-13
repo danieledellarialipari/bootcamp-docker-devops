@@ -4,7 +4,10 @@ WORKDIR /app
 
 # Prima solo i file delle dipendenze (cache friendly)
 COPY package*.json ./
-RUN npm ci --omit=dev
+
+# Cache persistente dei pacchetti npm tramite BuildKit
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci --omit=dev
 
 # Poi il sorgente
 COPY . .
